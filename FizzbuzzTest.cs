@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace csharp
 {
@@ -20,7 +21,15 @@ namespace csharp
 
         [Test]
         public void Number_Beyond_100_NotSupported() {
-            Assert.That(() => Fizzbuzz.Of(101), Throws.ArgumentException.With.Message.EqualTo("bar"));
+            ArgumentException ex = Assert.Throws<ArgumentException>(
+                () => Fizzbuzz.Of(101));
+            Assert.AreEqual("Number must be within 1 to 100", ex.Message);
+        }
+
+        [Test]
+        public void Alternative_Style_Expecting_Exception() {
+            Assert.That(() => Fizzbuzz.Of(101), 
+                Throws.ArgumentException.With.Message.EqualTo("Number must be within 1 to 100"));
         }
         
         
