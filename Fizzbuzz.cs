@@ -2,7 +2,7 @@
 
 namespace csharp {
     public static class Fizzbuzz {
-        public static string Convert(int number) {
+        public static string Of(int number) {
             if (number > 100) {
                 throw new ArgumentException("bar");
             }
