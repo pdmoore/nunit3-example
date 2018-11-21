@@ -37,6 +37,15 @@ namespace csharp
         public void Negative_Numbers() {
             Assert.Fail("unknown behavior");
         }
-        
+
+        [Test]
+        public void Verify_Trainer_ContactInfo() {
+            Contacts.Info actual = Contacts.get("Paul");
+            Assert.Multiple(() => {
+                Assert.AreEqual("Paul", actual.FirstName);
+                Assert.AreEqual("Moore", actual.LastName);
+                Assert.AreEqual("@pdmoore", actual.TwitterHandle);
+            });
+        }
     }
 }
