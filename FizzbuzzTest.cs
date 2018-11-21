@@ -31,7 +31,12 @@ namespace csharp
             Assert.That(() => Fizzbuzz.Of(101), 
                 Throws.ArgumentException.With.Message.EqualTo("Number must be within 1 to 100"));
         }
-        
+
+        [Test]
+        [Ignore("Ask PO how to correctly handle this case")]
+        public void Negative_Numbers() {
+            Assert.Fail("unknown behavior");
+        }
         
     }
 }
