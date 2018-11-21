@@ -1,11 +1,15 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace csharp
 {
     [TestFixture]
     public class FizzbuzzTest
     {
+        [Test]
+        public void Number_NotDivisibleBy_3or5_ReturnsNumber() {
+            Assert.AreEqual("1", Fizzbuzz.Convert(1));
+        }
+        
         [TestCase(3)]
         [TestCase(6)]
         [TestCase(9)]
@@ -19,17 +23,6 @@ namespace csharp
             Assert.That(() => Fizzbuzz.Convert(101), Throws.ArgumentException.With.Message.EqualTo("bar"));
         }
         
-    }
-
-
-    
-    
-    public static class Fizzbuzz {
-        public static string Convert(int number) {
-            if (number > 100) {
-                throw new ArgumentException("bar");
-            }
-            return "Fizz";
-        }
+        
     }
 }
